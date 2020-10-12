@@ -56,7 +56,7 @@
 	</tr>
 </tbody></table>
 <!-- End Save for Web Slices -->
-<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
 <script>
     document.write("<script src='accessToken/signPackage.php?originUrl=" + window.location.href + "' type='text/javascript'><\/script>");
 </script>
@@ -75,25 +75,23 @@
         nonceStr: signPackage.nonceStr,
         signature: signPackage.signature,
         jsApiList: [
-            'onMenuShareTimeline',
-            'onMenuShareAppMessage'
+            'updateAppMessageShareData',
+            'updateTimelineShareData'
         ]
     });
     wx.ready(function () {
-        wx.onMenuShareTimeline({
+        wx.updateTimelineShareData({
             title: wxData.title,
             link: wxData.link,
             imgUrl: wxData.imgUrl,
             success: function () {
             }
         });
-        wx.onMenuShareAppMessage({
+        wx.updateAppMessageShareData({
             title: wxData.title,
             desc: wxData.desc,
             link: wxData.link,
             imgUrl: wxData.imgUrl,
-            type: 'link',
-            dataUrl: '',
             success: function () {
             }
         });
