@@ -56,5 +56,48 @@
 	</tr>
 </tbody></table>
 <!-- End Save for Web Slices -->
+<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script>
+    document.write("<script src='accessToken/signPackage.php?originUrl=" + window.location.href + "' type='text/javascript'><\/script>");
+</script>
+<script>
+    var baseUrl = "ZuYiAAA.github.io"; //分享Js接口安全域名URL
+    var wxData = {
+        "imgUrl" : baseUrl + 'share.jpg', //分享图标
+        "link"   : baseUrl,
+        "title"  : '微信分享接口-分享标题',
+        "desc"   : '分享文案'
+    };
+    wx.config({
+        debug: false,
+        appId: signPackage.appId,
+        timestamp: parseInt(signPackage.timestamp),
+        nonceStr: signPackage.nonceStr,
+        signature: signPackage.signature,
+        jsApiList: [
+            'onMenuShareTimeline',
+            'onMenuShareAppMessage'
+        ]
+    });
+    wx.ready(function () {
+        wx.onMenuShareTimeline({
+            title: wxData.title,
+            link: wxData.link,
+            imgUrl: wxData.imgUrl,
+            success: function () {
+            }
+        });
+        wx.onMenuShareAppMessage({
+            title: wxData.title,
+            desc: wxData.desc,
+            link: wxData.link,
+            imgUrl: wxData.imgUrl,
+            type: 'link',
+            dataUrl: '',
+            success: function () {
+            }
+        });
+    });
+</script>
 
 </body></html>
