@@ -67,46 +67,5 @@ text-decoration:none;
 </head>
 <body>
 <img src="./main.jpg">
-<!-- <script src="http://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
-<script>
-    document.write("<script src='accessToken/signPackage.php?originUrl=" + window.location.href + "' type='text/javascript'><\/script>");
-</script>
-<script>
-    var baseUrl = "http://ZuYiAAA.github.io/"; //分享Js接口安全域名URL
-    var wxData = {
-        "imgUrl" : baseUrl + 'share.jpg', //分享图标
-        "link"   : baseUrl,
-        "title"  : '微信分享接口-分享标题',
-        "desc"   : '分享文案'
-    };
-    wx.config({
-        debug: false,
-        appId: signPackage.appId,
-        timestamp: parseInt(signPackage.timestamp),
-        nonceStr: signPackage.nonceStr,
-        signature: signPackage.signature,
-        jsApiList: [
-            'updateAppMessageShareData',
-            'updateTimelineShareData'
-        ]
-    });
-    wx.ready(function () {
-        wx.updateTimelineShareData({
-            title: wxData.title,
-            link: wxData.link,
-            imgUrl: wxData.imgUrl,
-            success: function () {
-            }
-        });
-        wx.updateAppMessageShareData({
-            title: wxData.title,
-            desc: wxData.desc,
-            link: wxData.link,
-            imgUrl: wxData.imgUrl,
-            success: function () {
-            }
-        });
-    });
-</script> -->
 </body>
 </html>
