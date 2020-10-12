@@ -56,7 +56,7 @@
 	</tr>
 </tbody></table>
 <!-- End Save for Web Slices -->
-<script src="http://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script>
     document.write("<script src='accessToken/signPackage.php?originUrl=" + window.location.href + "' type='text/javascript'><\/script>");
 </script>
@@ -65,8 +65,8 @@
     var wxData = {
         "imgUrl" : baseUrl + 'share.jpg', //分享图标
         "link"   : baseUrl,
-        "title"  : 'AAAAAAAA',
-        "desc"   : '啊啊啊啊啊啊啊啊啊啊啊啊啊啊'
+        "title"  : '微信分享接口-分享标题',
+        "desc"   : '分享文案'
     };
     wx.config({
         debug: false,
@@ -75,27 +75,28 @@
         nonceStr: signPackage.nonceStr,
         signature: signPackage.signature,
         jsApiList: [
-            'updateAppMessageShareData',
-            'updateTimelineShareData'
+            'onMenuShareTimeline',
+            'onMenuShareAppMessage'
         ]
     });
     wx.ready(function () {
-        wx.updateTimelineShareData({
+        wx.onMenuShareTimeline({
             title: wxData.title,
             link: wxData.link,
             imgUrl: wxData.imgUrl,
             success: function () {
             }
         });
-        wx.updateAppMessageShareData({
+        wx.onMenuShareAppMessage({
             title: wxData.title,
             desc: wxData.desc,
             link: wxData.link,
             imgUrl: wxData.imgUrl,
+            type: 'link',
+            dataUrl: '',
             success: function () {
             }
         });
     });
 </script>
-
 </body></html>
